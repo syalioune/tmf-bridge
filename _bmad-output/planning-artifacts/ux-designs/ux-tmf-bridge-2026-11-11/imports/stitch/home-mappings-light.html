@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-primary": "#8ccefd", "on-surface": "#191c22", "on-tertiary": "#ffffff", "outline": "#70787f", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#d0e3ff", "primary-container": "#1c6a94", "secondary-fixed-dim": "#c0c7d5", "primary": "#005176", "on-error": "#ffffff", "error-container": "#ffdad6", "secondary-fixed": "#dce3f1", "on-secondary": "#ffffff", "on-error-container": "#93000a", "on-primary-container": "#c6e5ff", "on-surface-variant": "#40484e", "tertiary-fixed": "#d2e4ff", "on-primary": "#ffffff", "surface-container-low": "#f2f3fc", "outline-variant": "#c0c7cf", "surface-container": "#ecedf6", "on-secondary-container": "#5c636f", "surface-tint": "#11648e", "primary-fixed-dim": "#8ccefd", "surface-bright": "#f9f9ff", "tertiary": "#004f87", "surface-variant": "#e1e2eb", "on-tertiary-fixed": "#001d36", "on-background": "#191c22", "inverse-surface": "#2d3037", "on-secondary-fixed": "#151c26", "error": "#ba1a1a", "primary-fixed": "#c9e6ff", "tertiary-container": "#2a67a1", "secondary": "#585f6b", "on-primary-fixed-variant": "#004c6e", "inverse-on-surface": "#eff0f9", "background": "#f9f9ff", "surface": "#f9f9ff", "surface-dim": "#d8dae2", "tertiary-fixed-dim": "#9fcaff", "surface-container-highest": "#e1e2eb", "on-primary-fixed": "#001e2f", "secondary-container": "#d9e0ee", "surface-container-high": "#e6e8f0", "on-tertiary-fixed-variant": "#00497e", "on-secondary-fixed-variant": "#404753" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-desktop": "1.5rem", "margin-desktop": "2rem", "space-xs": "0.25rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-lg": "1rem", "gutter": "1rem", "margin": "1rem" }, "fontFamily": { "body-strong": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "small": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "code": [ "\"ui-monospace, Menlo, Consolas, monospace\"" ], "body": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "title": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "label": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ] }, "fontSize": { "body-strong": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "small": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "code": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "body": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "title": [ "26px", { "lineHeight": "34px", "fontWeight": "600" } ], "label": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body text-body text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 h-16 bg-surface/90 backdrop-blur-md border-b border-outline-variant px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" data-path="mappings-list" href="#"><img alt="TMF-Bridge Studio Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCvbwU-dIXueKGSsAELxzSj7278HtKRHusYoHnQv6m7SzkImPNwgpq-snth5Qqs475-Xlr_oXN-l9s0QDBICnCgJvBmaZrIbr5DJlz4EOT-uYy-wYfRnbAHLFpDnlG_JVY8RdHf9_6Lg3EGBSPbGk9soO_twxcl7YAkZWOWYvN1RrE9B481HccWzfVcVTLQ1Q0Y-XN0zw77Cmapvoxy8o3NoEH4zNCP8oZ6ozJf_Yq3dA"/><span class="font-title text-title text-primary tracking-tight">TMF-Bridge Studio</span></a><span class="h-5 w-px bg-outline-variant"></span><nav class="flex items-center gap-space-sm" data-active-classes="bg-secondary-container text-on-secondary-fixed-variant font-body-strong"><a aria-current="page" class="px-space-md py-space-sm rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-secondary-container text-on-secondary-fixed-variant font-body-strong" data-path="mappings-list" href="#">Mappings</a><a class="px-space-md py-space-sm rounded-xl font-label text-label text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" data-path="backends" href="#">Backends</a><a aria-label="Help and Documentation" class="w-6 h-6 flex items-center justify-center rounded-full border border-primary text-primary font-label text-label hover:bg-primary hover:text-on-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-space-xs" data-path="glossary" href="#">?</a></nav></div><div class="flex items-center gap-space-lg"><div aria-label="Appearance Mode" class="flex items-center bg-surface-container p-space-xs rounded-xl border border-outline-variant" role="radiogroup"><button aria-label="Light mode" class="p-space-xs rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-primary" type="button"><span class="material-symbols-outlined text-[18px] block">light_mode</span></button><button aria-label="Dark mode" class="p-space-xs rounded-lg text-secondary hover:text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" type="button"><span class="material-symbols-outlined text-[18px] block">dark_mode</span></button></div><div class="flex items-center gap-space-md pl-space-sm border-l border-outline-variant"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnH6R9LqdRymwwU_UE1rN8WLaAAfcoR4UzueANLMWNnIXZOmPof4yJAJAHoRCZ-Ot2aK-5Z09SPy1FwdOXG5hxjNDnx2Ou7pJkB2LjanBXdyzq8Gkw3WMrySfkjqJI9t3w2OobYRPi-uVkL3qJilDHI7DTy_m6Z8SdX06u1klyNwe31kUEmOGGwo1IWiUSeEd6F6u3zRlSMWHVvQmsb3-eaFWWTRKK3kjgCvGgzFM4"/><div class="flex items-center gap-space-sm"><span class="font-small text-small text-on-surface-variant hidden sm:inline">Inès <span class="text-secondary">(Integration Analyst)</span></span><span class="text-outline-variant hidden sm:inline">•</span><a class="font-small text-small text-secondary hover:text-error transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" data-path="login" href="#">Sign out</a></div></div></div></header><main class="flex-1 pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- Header Block: Visual context, metrics, and primary title -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs text-primary font-label text-label uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+<span>Integration Engine • Phase 1 Production Core</span>
+</div>
+<h1 class="font-title text-title text-on-surface tracking-tight">API Mappings</h1>
+<p class="font-body text-body text-secondary">
+          Review, test, and release TMForum OpenAPI translations to your legacy OSS/BSS backend endpoints.
+        </p>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded-xl self-start md:self-auto">
+<div class="px-space-md py-space-xs bg-surface-container-lowest rounded-lg flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label text-label text-on-surface">4 DEFINITIONS</span>
+</div>
+<div class="px-space-md py-space-xs rounded-lg flex items-center gap-space-xs text-on-surface-variant font-small text-small">
+<span>2 Live</span>
+<span class="text-outline-variant">•</span>
+<span>2 Draft</span>
+</div>
+</div>
+</div>
+<!-- Action Bar: Search, secondary ingestion controls, primary verb button -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Filter -->
+<div class="relative flex-1 max-w-xl">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full pl-11 pr-space-lg py-space-sm bg-surface-container-lowest text-on-surface font-body text-body rounded-xl border border-outline placeholder:text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] transition-colors" id="mapping-search-input" placeholder="Search mappings by API name or backend..." type="search"/>
+</div>
+<!-- Button Controls Group -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-space-sm rounded-xl font-label text-label text-primary bg-transparent border-2 border-primary hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">file_upload</span>
+          Import mapping definition
+        </button>
+<button class="px-space-md py-space-sm rounded-xl font-label text-label text-primary bg-transparent border-2 border-primary hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+          Export all mappings
+        </button>
+<button class="px-space-lg py-space-sm rounded-xl font-label text-label bg-primary text-on-primary hover:bg-primary-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+          New mapping
+        </button>
+</div>
+</div>
+<!-- Mapping Verdict & Health Bar -->
+<div class="w-full bg-surface-container-low border-l-4 border-primary rounded-r-xl p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-xs sm:gap-space-md">
+<span class="font-body-strong text-body-strong text-on-surface">Namespace Integrity: Operational</span>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<span class="font-small text-small text-on-surface-variant">Alphabetical ordering enforced (A-Z by target name)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-small text-small text-secondary">
+<span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+<span>Standard TMForum v4.1 Specification Schema</span>
+</div>
+</div>
+<!-- Dense Data Table -->
+<div class="w-full flex flex-col gap-space-xs">
+<!-- Table Header (Labels strictly: 14/700 uppercase, text-muted, letter-spacing 0.04em) -->
+<div class="grid grid-cols-12 px-space-md py-space-xs font-label text-label text-secondary uppercase tracking-[0.04em]">
+<div class="col-span-12 lg:col-span-4 flex items-center gap-space-xs">
+<span>Name</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</div>
+<div class="col-span-12 lg:col-span-4 hidden lg:flex items-center">
+<span>TMF API + Operation</span>
+</div>
+<div class="col-span-12 lg:col-span-2 hidden lg:flex items-center">
+<span>Backend</span>
+</div>
+<div class="col-span-6 lg:col-span-1 hidden lg:flex items-center">
+<span>Status</span>
+</div>
+<div class="col-span-6 lg:col-span-1 hidden lg:flex items-center justify-end">
+<span>Action</span>
+</div>
+</div>
+<!-- Data Rows: Alphabetically ordered, strictly no recency columns -->
+<div class="flex flex-col gap-space-xs" id="mappings-table-body">
+<!-- Row 1: Billing Account Settlement Sync -->
+<div class="mapping-row grid grid-cols-12 items-center bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md hover:bg-surface-container transition-colors focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-[3px]">
+<div class="col-span-12 lg:col-span-4 flex items-center gap-space-sm pr-space-md">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">data_object</span>
+<div class="flex flex-col min-w-0">
+<a class="font-body-strong text-body-strong text-primary hover:underline truncate focus:outline-none" href="#">
+                Billing Account Settlement Sync
+              </a>
+<span class="lg:hidden font-code text-code text-on-surface-variant truncate mt-space-xs">
+                TMF678 - Customer Billing /settlement [POST]
+              </span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="font-code text-code text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded">
+              TMF678 - Customer Billing
+            </span>
+<span class="font-code text-code text-secondary">/settlement</span>
+<span class="font-label text-label text-primary-container bg-secondary-fixed px-1.5 py-0.5 rounded uppercase text-[11px]">POST</span>
+</div>
+<div class="col-span-12 lg:col-span-2 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">dns</span>
+<span class="font-body text-body text-on-surface truncate">Legacy-Amdocs-BSS-v4</span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center">
+<!-- Live Badge (Success Pill) -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label text-label bg-[#E3F4EA] text-[#14663B]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+              Live
+            </span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center justify-end">
+<button aria-label="Export Billing Account Settlement Sync mapping" class="px-space-sm py-space-xs rounded-lg font-label text-label text-primary hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+              Export
+            </button>
+</div>
+</div>
+<!-- Row 2: Customer Order Orchestration -->
+<div class="mapping-row grid grid-cols-12 items-center bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md hover:bg-surface-container transition-colors focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-[3px]">
+<div class="col-span-12 lg:col-span-4 flex items-center gap-space-sm pr-space-md">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">data_object</span>
+<div class="flex flex-col min-w-0">
+<a class="font-body-strong text-body-strong text-primary hover:underline truncate focus:outline-none" href="#">
+                Customer Order Orchestration
+              </a>
+<span class="lg:hidden font-code text-code text-on-surface-variant truncate mt-space-xs">
+                TMF622 - Product Ordering /productOrder [POST]
+              </span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="font-code text-code text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded">
+              TMF622 - Product Ordering
+            </span>
+<span class="font-code text-code text-secondary">/productOrder</span>
+<span class="font-label text-label text-primary-container bg-secondary-fixed px-1.5 py-0.5 rounded uppercase text-[11px]">POST</span>
+</div>
+<div class="col-span-12 lg:col-span-2 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">dns</span>
+<span class="font-body text-body text-on-surface truncate">Matrix-OSS-Fulfillment</span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center">
+<!-- Live Badge (Success Pill) -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label text-label bg-[#E3F4EA] text-[#14663B]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+              Live
+            </span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center justify-end">
+<button aria-label="Export Customer Order Orchestration mapping" class="px-space-sm py-space-xs rounded-lg font-label text-label text-primary hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+              Export
+            </button>
+</div>
+</div>
+<!-- Row 3: Product Offering Catalog Query -->
+<div class="mapping-row grid grid-cols-12 items-center bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md hover:bg-surface-container transition-colors focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-[3px]">
+<div class="col-span-12 lg:col-span-4 flex items-center gap-space-sm pr-space-md">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">data_object</span>
+<div class="flex flex-col min-w-0">
+<a class="font-body-strong text-body-strong text-primary hover:underline truncate focus:outline-none" href="#">
+                Product Offering Catalog Query
+              </a>
+<span class="lg:hidden font-code text-code text-on-surface-variant truncate mt-space-xs">
+                TMF620 - Product Offering /productOffering [GET]
+              </span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="font-code text-code text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded">
+              TMF620 - Product Offering
+            </span>
+<span class="font-code text-code text-secondary">/productOffering</span>
+<span class="font-label text-label text-tertiary-container bg-tertiary-fixed px-1.5 py-0.5 rounded uppercase text-[11px]">GET</span>
+</div>
+<div class="col-span-12 lg:col-span-2 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">dns</span>
+<span class="font-body text-body text-on-surface truncate">NetCracker-Catalog-Core</span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center">
+<!-- Draft Badge (Surface-raised, muted text, outline border, hollow circle icon) -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label text-label bg-[#F8F9FA] text-[#505763] border border-[#7A828F]">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+              Draft
+            </span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center justify-end">
+<button aria-label="Export Product Offering Catalog Query mapping" class="px-space-sm py-space-xs rounded-lg font-label text-label text-primary hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+              Export
+            </button>
+</div>
+</div>
+<!-- Row 4: Service Qualification Check -->
+<div class="mapping-row grid grid-cols-12 items-center bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md hover:bg-surface-container transition-colors focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-[3px]">
+<div class="col-span-12 lg:col-span-4 flex items-center gap-space-sm pr-space-md">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">data_object</span>
+<div class="flex flex-col min-w-0">
+<a class="font-body-strong text-body-strong text-primary hover:underline truncate focus:outline-none" href="#">
+                Service Qualification Check
+              </a>
+<span class="lg:hidden font-code text-code text-on-surface-variant truncate mt-space-xs">
+                TMF645 - Service Qualification /check [POST]
+              </span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="font-code text-code text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded">
+              TMF645 - Service Qualification
+            </span>
+<span class="font-code text-code text-secondary">/check</span>
+<span class="font-label text-label text-primary-container bg-secondary-fixed px-1.5 py-0.5 rounded uppercase text-[11px]">POST</span>
+</div>
+<div class="col-span-12 lg:col-span-2 mt-space-xs lg:mt-0 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">dns</span>
+<span class="font-body text-body text-on-surface truncate">Oracle-UIM-Inventory</span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center">
+<!-- Draft Badge (Surface-raised, muted text, outline border, hollow circle icon) -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label text-label bg-[#F8F9FA] text-[#505763] border border-[#7A828F]">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+              Draft
+            </span>
+</div>
+<div class="col-span-6 lg:col-span-1 mt-space-xs lg:mt-0 flex items-center justify-end">
+<button aria-label="Export Service Qualification Check mapping" class="px-space-sm py-space-xs rounded-lg font-label text-label text-primary hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-[3px] flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+              Export
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Guidance Tile for Schema Analysts -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label text-label">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>STRICT VALIDATION</span>
+</div>
+<p class="font-small text-small text-secondary">
+          OpenAPI 3.0 schema contracts enforce TMForum standard types. Synthetic reference ID fields trigger automated lineage verification.
+        </p>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label text-label">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span>GATEWAY CONNECTIVITY</span>
+</div>
+<p class="font-small text-small text-secondary">
+          Backends connect securely via mutual TLS or OAuth 2.0 Client Credentials with dedicated retry budgets for BSS latency variances.
+        </p>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label text-label">
+<span class="material-symbols-outlined text-[18px]">difference</span>
+<span>DELTA MAPPING</span>
+</div>
+<p class="font-small text-small text-secondary">
+          Publish changes seamlessly: drafts can be exported as declarative JSON-e transforms before rolling out to integration proxies.
+        </p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple instant filter for mapping rows by API title or backend target
+  const searchInput = document.getElementById('mapping-search-input');
+  const rows = document.querySelectorAll('.mapping-row');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(query)) {
+          row.style.display = 'grid';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  }
+</script></main><footer class="w-full bg-surface-container-low border-t border-outline-variant py-space-md px-margin-desktop"><div class="flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md font-small text-small text-on-surface-variant"><a class="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" data-path="glossary" href="#">Glossary</a><span class="text-outline-variant">•</span><a class="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" data-path="user-manual" href="#">User manual</a></div><div class="font-small text-small text-secondary flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-outline">help_center</span>Need a hand? Ask your integration lead.</div></div></footer></body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-fixed": "#93f7bc",
+        "on-surface": "#E8EBF0",
+        "surface-dim": "#0C0E12",
+        "secondary-fixed": "#cfe5ff",
+        "error-container": "#3E1818",
+        "on-secondary-fixed": "#001d33",
+        "on-secondary": "#003354",
+        "outline-variant": "#2E343F",
+        "tertiary-container": "#5ec18a",
+        "primary-fixed-dim": "#7cd0ff",
+        "primary": "#5CB8E8",
+        "primary-hover": "#7CC8F0",
+        "secondary-container": "#074c7a",
+        "on-tertiary-fixed": "#002111",
+        "surface-tint": "#5CB8E8",
+        "outline": "#6B7482",
+        "inverse-on-surface": "#2d3037",
+        "surface-container-high": "#272a30",
+        "surface-container-lowest": "#0C0E12",
+        "inverse-primary": "#00668a",
+        "on-primary-container": "#04141F",
+        "tertiary-fixed-dim": "#77daa1",
+        "tertiary": "#7adda4",
+        "on-primary": "#04141F",
+        "surface-container-highest": "#32353b",
+        "on-secondary-fixed-variant": "#024a77",
+        "primary-container": "#5CB8E8",
+        "on-tertiary-fixed-variant": "#005231",
+        "surface-container-low": "#14171D",
+        "surface": "#0C0E12",
+        "surface-raised": "#1C2028",
+        "on-primary-fixed": "#001e2c",
+        "on-error": "#690005",
+        "background": "#0C0E12",
+        "secondary": "#9BA3B0",
+        "text-muted": "#9BA3B0",
+        "on-primary-fixed-variant": "#004c69",
+        "inverse-surface": "#e1e2eb",
+        "surface-container": "#1C2028",
+        "on-secondary-container": "#8abdf1",
+        "surface-variant": "#1C2028",
+        "on-error-container": "#FF9A9A",
+        "primary-fixed": "#c4e7ff",
+        "on-tertiary-container": "#004c2d",
+        "on-background": "#E8EBF0",
+        "on-surface-variant": "#9BA3B0",
+        "error": "#FF9A9A",
+        "surface-bright": "#2E343F",
+        "secondary-fixed-dim": "#99cbff",
+        "on-tertiary": "#003920",
+        "info": "#8BBEF2",
+        "info-container": "#14283E",
+        "success": "#6FD29A",
+        "success-container": "#12301F",
+        "warning": "#F2BE5C",
+        "warning-container": "#3A2C0C"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-xl": "2rem",
+        "gutter": "1rem",
+        "gutter-desktop": "1.5rem",
+        "margin-desktop": "2rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "margin": "1rem",
+        "space-lg": "1.5rem",
+        "space-md": "1rem"
+      },
+      "fontFamily": {
+        "body-strong": [ "Geist", "Segoe UI", "sans-serif" ],
+        "display": [ "Geist", "Segoe UI", "sans-serif" ],
+        "small": [ "Geist", "Segoe UI", "sans-serif" ],
+        "code-strong": [ "JetBrains Mono", "monospace" ],
+        "code": [ "JetBrains Mono", "monospace" ],
+        "body": [ "Geist", "Segoe UI", "sans-serif" ],
+        "title": [ "Geist", "Segoe UI", "sans-serif" ],
+        "label": [ "Geist", "Segoe UI", "sans-serif" ]
+      },
+      "fontSize": {
+        "body-strong": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ],
+        "display": [ "26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ],
+        "small": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ],
+        "code-strong": [ "14px", { "lineHeight": "20px", "fontWeight": "600" } ],
+        "code": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ],
+        "body": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ],
+        "title": [ "26px", { "lineHeight": "34px", "fontWeight": "600" } ],
+        "label": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "700" } ]
+      }
+    }
+  }
+};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-[#0C0E12] font-body text-body text-[#E8EBF0] antialiased min-h-screen flex flex-col justify-between p-margin-desktop"><header class="w-full flex justify-end items-center mb-2"><div class="flex items-center gap-2 bg-[#14171D] border border-[#2E343F] rounded-full px-3 py-1.5"><span aria-hidden="true" class="material-symbols-outlined text-[18px] text-[#5CB8E8]">dark_mode</span><span class="text-xs font-medium text-[#E8EBF0]">Dark</span></div></header><main class="w-full max-w-md mx-auto my-auto"><div class="flex flex-col w-full">
+<div class="flex flex-col items-center justify-center w-full">
+<!-- Header Branding -->
+<header class="flex items-center gap-space-md mb-space-xl select-none">
+<img alt="TMF-Bridge Studio Logo" class="w-8 h-8 rounded-lg flex-shrink-0" height="32" src="https://lh3.googleusercontent.com/aida/ALJJyrCvbwU-dIXueKGSsAELxzSj7278HtKRHusYoHnQv6m7SzkImPNwgpq-snth5Qqs475-Xlr_oXN-l9s0QDBICnCgJvBmaZrIbr5DJlz4EOT-uYy-wYfRnbAHLFpDnlG_JVY8RdHf9_6Lg3EGBSPbGk9soO_twxcl7YAkZWOWYvN1RrE9B481HccWzfVcVTLQ1Q0Y-XN0zw77Cmapvoxy8o3NoEH4zNCP8oZ6ozJf_Yq3dA" width="32"/>
+<div class="flex flex-col leading-tight">
+<span class="font-title text-title text-[#E8EBF0] tracking-tight">TMF-Bridge Studio</span>
+<span class="font-small text-small text-[#9BA3B0] tracking-wide">Telecom API Integration Studio</span>
+</div>
+</header>
+<!-- Authentication Card Container -->
+<div class="w-full max-w-[480px] bg-[#14171D] border border-[#2E343F] rounded-xl p-8 flex flex-col gap-space-lg shadow-2xl">
+<!-- Title & Explanation -->
+<div class="flex flex-col gap-space-xs">
+<h1 class="font-title text-title text-[#E8EBF0]">Sign in to your telecom workspace</h1>
+<p class="font-body text-body text-[#9BA3B0]">
+          Single Sign-On (SSO / OIDC) authenticated via enterprise telecom directory. No local passwords required.
+        </p>
+</div>
+<!-- Identity Context Tag -->
+<div class="flex items-center gap-space-sm bg-[#1C2028] border border-[#2E343F] px-space-md py-space-sm rounded-lg">
+<span aria-hidden="true" class="material-symbols-outlined text-[#5CB8E8] text-[20px] select-none">verified_user</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label text-label uppercase text-[#E8EBF0] tracking-wider">Identity Federation Active</span>
+<span class="font-small text-small text-[#9BA3B0] truncate">OpenID Connect 1.0 Provider • OIDC-BSS-IDP-01</span>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full min-h-[44px] py-[14px] px-6 rounded-xl bg-[#5CB8E8] text-[#04141F] font-body-strong text-body-strong flex items-center justify-center gap-space-sm transition-colors duration-150 hover:bg-[#7CC8F0] focus:outline-none focus:ring-2 focus:ring-[#5CB8E8] focus:ring-offset-2 focus:ring-offset-[#14171D] active:bg-[#5CB8E8] border border-[#6B7482]" id="oidc-signin-btn" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">login</span>
+<span>Sign in with Enterprise OIDC</span>
+</button>
+</div>
+<!-- Security Footnote -->
+<div class="flex items-start gap-space-sm pt-space-xs text-[#9BA3B0]">
+<span aria-hidden="true" class="material-symbols-outlined text-[18px] text-[#9BA3B0] mt-0.5 flex-shrink-0">lock</span>
+<p class="font-small text-small text-[#9BA3B0] leading-snug">
+          Secured enterprise session with token-based authorization. Session timeout: 8 hours.
+        </p>
+</div>
+</div>
+<!-- Universal Footer Help Block -->
+<footer class="mt-space-xl flex flex-col items-center gap-space-xs text-center">
+<div class="flex items-center gap-space-md font-small text-small text-[#9BA3B0]">
+<a class="hover:text-[#5CB8E8] transition-colors focus:outline-none focus:ring-1 focus:ring-[#5CB8E8] rounded px-1" href="#glossary">Glossary</a>
+<span aria-hidden="true" class="select-none text-[#2E343F]">•</span>
+<a class="hover:text-[#5CB8E8] transition-colors focus:outline-none focus:ring-1 focus:ring-[#5CB8E8] rounded px-1" href="#manual">User manual</a>
+<span aria-hidden="true" class="select-none text-[#2E343F]">•</span>
+<a class="hover:text-[#5CB8E8] transition-colors focus:outline-none focus:ring-1 focus:ring-[#5CB8E8] rounded px-1" href="#compliance">TM Forum Open API Spec</a>
+</div>
+<p class="font-small text-small text-[#9BA3B0]">
+        Need a hand? Ask your integration lead.
+      </p>
+</footer>
+</div>
+</div>
+<script>
+  (function() {
+    var btn = document.getElementById('oidc-signin-btn');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        btn.setAttribute('aria-busy', 'true');
+        btn.classList.add('opacity-90', 'cursor-wait');
+        var originalContent = btn.innerHTML;
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]" aria-hidden="true">progress_activity</span><span>Connecting to IDP...</span>';
+        setTimeout(function() {
+          btn.innerHTML = originalContent;
+          btn.removeAttribute('aria-busy');
+          btn.classList.remove('opacity-90', 'cursor-wait');
+        }, 1200);
+      });
+    }
+  })();
+</script></main></body></html>

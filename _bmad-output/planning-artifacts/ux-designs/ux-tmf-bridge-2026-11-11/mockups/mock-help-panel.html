@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Help panel - TMF-Bridge Studio</title><style>
+/* Graphite and cool cyan (theme 5). Same tokens, top bar, footer help, skip link and a11y fixes as mock-map-request.html.
+   Governing spine sections: see caption. Light/dark follow system (prefers-color-scheme). Status = icon + text. No JS. */
+
+:root{--bg:#F2F3F5;--surface:#fff;--raised:#F8F9FA;--text:#16191F;--muted:#505763;--border:#CDD1D8;--inb:#7A828F;--primary:#005176;--hover:#003D59;--onp:#fff;--focus:#005176;
+--ok:#14663B;--okbg:#E3F4EA;--warn:#7A4A00;--warnbg:#FFF1CC;--err:#A31F1F;--errbg:#FDECEC;--info:#1F5F99;--infobg:#E4EEF9;--code:#0F1319;--codeink:#E8EBF0;--tip:#E4EEF9}
+@media (prefers-color-scheme:dark){:root{--bg:#0C0E12;--surface:#14171D;--raised:#1C2028;--text:#E8EBF0;--muted:#9BA3B0;--border:#2E343F;--inb:#6B7482;--primary:#85D3FF;--hover:#A6DFFF;--onp:#00344A;--focus:#85D3FF;
+--ok:#6FD29A;--okbg:#12301F;--warn:#F2BE5C;--warnbg:#3A2C0C;--err:#FF9A9A;--errbg:#3E1818;--info:#8BBEF2;--infobg:#14283E;--code:#07090C;--codeink:#E8EBF0;--tip:#14283E}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px}
+a{color:var(--primary)}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px}
+.cap{font-size:14px;color:var(--muted);margin:0 0 6px;max-width:1280px;margin-inline:auto}
+.frame{max-width:1280px;margin:0 auto 28px;border:1px solid var(--border);border-radius:12px;background:var(--bg);overflow:hidden}
+.chrome{display:flex;gap:6px;align-items:center;padding:8px 12px;background:var(--raised);border-bottom:1px solid var(--border)}
+.chrome i{width:10px;height:10px;border-radius:50%;background:var(--border)}.url{margin-left:10px;flex:1;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:2px 10px;font-size:14px;color:var(--muted)}
+.appbar{display:flex;align-items:center;gap:16px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
+.brand{font-weight:700}.crumb{color:var(--muted);flex:1;font-size:14px}.appbar nav{display:flex;gap:14px;align-items:center;font-size:14px}
+.btn{font:inherit;font-weight:600;border-radius:8px;padding:8px 14px;border:2px solid var(--primary);background:var(--primary);color:var(--onp);cursor:pointer;min-height:36px}
+.btn.sec{background:var(--surface);color:var(--primary)}.btn.big{padding:11px 20px;min-height:44px}
+.q{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--primary);font-size:14px;font-weight:700;text-decoration:none;color:var(--primary);margin-left:6px;vertical-align:middle}
+
+.seg{display:inline-flex;gap:4px;padding:3px;border:1px solid var(--inb);border-radius:10px}.seg button{font:inherit;font-size:14px;border:0;border-radius:7px;background:var(--surface);color:var(--text);padding:6px 12px;min-height:28px;cursor:pointer}.seg button[aria-pressed=true]{background:var(--primary);color:var(--onp);font-weight:600}
+.stepper{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:14px 20px;gap:6px;background:var(--surface);border-bottom:1px solid var(--border)}
+.stepper li{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;font-size:14px;color:var(--muted);white-space:nowrap}
+.stepper .n{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--muted);display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.stepper .done .n{background:var(--ok);border-color:var(--ok);color:var(--surface)}.stepper .done{color:var(--text)}
+.stepper .cur{background:var(--infobg);color:var(--text);font-weight:700;box-shadow:inset 0 -3px 0 var(--primary)}.stepper .cur .n{background:var(--primary);border-color:var(--primary);color:var(--onp)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;align-items:start}
+main{padding:20px 24px}aside.insp{border-left:1px solid var(--border);background:var(--surface);padding:20px;min-height:100%}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:16px;margin:0 0 8px}h3{font-size:14px;margin:16px 0 6px}.lead{color:var(--muted);margin:0 0 14px;max-width:70ch}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px}
+.tip{background:var(--tip);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.pill{display:inline-flex;gap:6px;align-items:center;border-radius:999px;padding:2px 10px;font-size:14px;font-weight:600}
+.p-ok{background:var(--okbg);color:var(--ok)}.p-warn{background:var(--warnbg);color:var(--warn)}.p-err{background:var(--errbg);color:var(--err)}.p-info{background:var(--infobg);color:var(--info)}.p-mut{background:var(--raised);color:var(--muted);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+th{text-align:left;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:10px 14px;background:var(--raised);border-bottom:1px solid var(--border)}
+td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:middle}tr:last-child td{border-bottom:0}
+tr.sel td{background:var(--infobg)}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(--primary)}tr.warnrow td{background:var(--warnbg)}
+.chip{display:inline-block;border:1px solid var(--inb);border-radius:8px;padding:2px 10px;background:var(--surface);font-size:14px}
+.link-td{position:relative;text-align:center}.link-td svg{position:absolute;left:-44px;right:-44px;top:0;width:calc(100% + 88px);height:100%;pointer-events:none}.link-td .chip{position:relative;z-index:1}
+.mock-input{border:1px solid var(--inb);border-radius:8px;background:var(--surface);padding:8px 10px;color:var(--text);font:inherit;width:100%}
+dl{margin:0}dt{font-weight:600;font-size:14px;color:var(--muted);margin-top:10px}dd{margin:2px 0 0}
+pre{background:var(--code);color:var(--codeink);border-radius:8px;padding:12px;overflow:auto;margin:6px 0}
+.foot{display:flex;gap:16px;align-items:center;padding:12px 24px;border-top:1px solid var(--border);background:var(--surface);font-size:14px;color:var(--muted);flex-wrap:wrap}
+.banner{border-radius:12px;padding:14px 16px;border:1px solid;display:flex;gap:12px;align-items:flex-start}
+.b-err{background:var(--errbg);border-color:var(--err);color:var(--text)}.b-ok{background:var(--okbg);border-color:var(--ok)}.b-warn{background:var(--warnbg);border-color:var(--warn)}
+.b-err .ti{color:var(--err)}.b-ok .ti{color:var(--ok)}.b-warn .ti{color:var(--warn)}.ti{font-weight:700;font-size:18px;line-height:1.2}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+ul.plain{margin:6px 0;padding-left:20px}
+@media (max-width:1024px){.layout{grid-template-columns:1fr}aside.insp{border-left:0;border-top:1px solid var(--border)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+html{scroll-padding-top:16px;scroll-padding-bottom:140px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:8px;top:-60px;background:var(--primary);color:var(--onp);padding:8px 12px;border-radius:8px;z-index:9;font-weight:600}.skip:focus{top:8px}
+.frame{overflow:visible}.frame>:first-child{border-radius:12px 12px 0 0}.frame>:last-child{border-radius:0 0 12px 12px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 2px var(--surface)}
+.btn[aria-disabled=true]{background:var(--raised);border-color:var(--border);color:var(--muted);cursor:not-allowed}
+button.q{background:transparent;font:inherit;font-size:14px;font-weight:700;cursor:pointer;padding:0}
+.tgl{font:inherit;font-size:14px;border:1px solid var(--inb);background:var(--surface);color:var(--text);border-radius:8px;padding:4px 10px;min-height:32px;cursor:pointer}.tgl[aria-pressed=true]{background:var(--infobg)}
+.gw{position:relative;display:inline-block}button.g{font:inherit;background:none;border:0;border-bottom:2px dotted var(--primary);color:var(--text);padding:0 0 1px;cursor:help;min-height:24px}
+.pop{display:none;position:absolute;left:0;top:100%;z-index:5;width:260px;background:var(--infobg);color:var(--info);border:1px solid var(--info);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:400}
+.gw:hover .pop,.gw.open .pop,.gw button.g:focus-visible+.pop{display:block}.gw.dismissed .pop{display:none!important}
+.tscroll{border:1px solid var(--border);border-radius:12px;overflow-x:auto;background:var(--surface)}.tscroll table{border:0;border-radius:0;min-width:640px}
+.tscroll th:first-child{border-top-left-radius:11px}.tscroll th:last-child{border-top-right-radius:11px}
+tbody th{text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text);background:transparent;border-bottom:1px solid var(--border);padding:11px 14px;font-weight:400}tbody tr:last-child th{border-bottom:0}
+tr.sel th{background:var(--infobg);box-shadow:inset 4px 0 0 var(--primary)}tr.warnrow th{background:var(--warnbg)}
+.rowsel{font:inherit;background:none;border:0;padding:2px 4px;min-height:24px;cursor:pointer;color:var(--text);text-align:left}
+.sub{color:var(--muted);font-size:14px}
+.stepper a{display:inline-flex;align-items:center;gap:8px;color:inherit;min-height:24px}
+.sh{display:inline;font-size:16px;margin:0}figure{margin:6px 0}figcaption{font-weight:600;font-size:14px}
+.share{position:sticky;bottom:0;border-top:3px solid var(--primary);background:var(--raised);color:var(--text)}
+@media (max-height:600px){.share{position:static}}
+@media (forced-colors:active){tr.sel th,tr.sel td{outline:2px solid Highlight;outline-offset:-2px}.pill,.chip,.banner,.tip,.pop{border:1px solid CanvasText}.stepper .cur{border:2px solid Highlight}svg path{stroke:CanvasText}}
+
+.gw .pop{width:280px}.gw.open .pop{display:block}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin:12px 0}.tabs button{font:inherit;font-size:14px;background:none;border:0;border-bottom:3px solid transparent;padding:6px 12px;min-height:36px;color:var(--text);cursor:pointer}.tabs button[aria-selected=true]{border-bottom-color:var(--primary);font-weight:700}
+.rd{background:var(--raised);border:1px solid var(--border);border-radius:8px;padding:6px 10px;display:inline-block}
+.what dt{margin-top:8px}.sec-h{margin:0 0 4px;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.help{border-left:1px solid var(--border);background:var(--surface);padding:20px;min-height:100%}
+.help li{margin:4px 0}kbd{font:14px ui-monospace,monospace;border:1px solid var(--inb);border-radius:6px;padding:0 6px;background:var(--raised)}
+.help .pop{width:240px;max-width:none}.mono-lbl{font-weight:600}
+.appbar nav a[aria-current=page]{font-weight:700;text-decoration:none;border-bottom:3px solid var(--primary)}</style></head><body><p class="cap">Illustrative mock; DESIGN.md and EXPERIENCE.md win on any conflict. Governing spine: Component Patterns (Help panel, Glossary term, Inline tip), Help &amp; Glossary system, Help search states. State: Help panel open over Map request, payload popover open (hover or focus).</p><div class="frame"><div class="chrome"><i></i><i></i><i></i><span class="url">studio.tmf-bridge.local/mappings/product-orders-lookup/request</span></div><a class="skip" href="#main-1">Skip to main content</a><a class="skip" href="#helpp">Skip to Help panel</a><header class="appbar"><b class="brand">TMF-Bridge Studio</b><span class="crumb">Product orders lookup &middot; TMF622 Product Ordering / GET /productOrder/{id}</span><nav aria-label="Main"><a href="mock-backends.html">Backends</a><a href="mock-id-map.html">Id map</a><button type="button" class="q" aria-label="Help: open the Help panel" aria-expanded="true">?</button><button type="button" class="tgl" aria-pressed="false">Dark mode</button><button type="button" class="tgl" aria-haspopup="menu" aria-label="Account menu: Inès Diallo">Inès Diallo &#9662;</button></nav></header><div class="layout"><div><main id="main-1" tabindex="-1" style="padding:20px 24px"><div style="display:flex;gap:12px;align-items:center;margin-bottom:8px"><h1 style="margin:0" tabindex="-1">Map the request</h1><a class="q" href="#helpp" aria-label="Help: Map the request">?</a></div>
+<p class="lead">Tell the backend what to ask for. Each row sends a TMF622 input to a backend field, optionally changed by a transform.</p>
+<div class="tscroll" role="region" aria-label="Request mapping table" tabindex="0"><table style="min-width:420px"><caption class="sr">Request mapping</caption><thead><tr><th scope="col">TMF622 input</th><th scope="col">Transform</th><th scope="col">Backend field</th></tr></thead><tbody><tr class=sel><th scope="row"><b class="mono">id</b></th><td><span class="chip">No id-map yet</span></td><td><b class="mono">orderId</b></td></tr><tr><th scope="row"><b class="mono">state</b></th><td><span class="chip">Map values</span></td><td><b class="mono">status</b></td></tr><tr><th scope="row"><b class="mono">limit</b></th><td><span class="chip">Copy as is</span></td><td><b class="mono">pageSize</b></td></tr></tbody></table></div>
+<div class="actions" style="justify-content:space-between;margin-top:20px"><button class="btn sec big">Back: Declare backend</button><button class="btn big">Next: Map response</button></div></main></div><aside class="help" id="helpp" aria-label="Help panel" role="complementary"><div style="display:flex;align-items:center;gap:8px"><h2 style="margin:0;font-size:18px;flex:1">Help</h2><button type="button" class="btn sec" style="padding:2px 10px;min-height:28px" aria-label="Dock help panel to the bottom">Dock</button><button type="button" class="btn sec" style="padding:2px 10px;min-height:28px">Close<span class="sr"> Help panel (Esc)</span></button></div>
+<form role="search" style="margin-top:10px"><label for="hs" class="sub">Search help and glossary</label><input id="hs" class="mock-input" type="search" value="id map" style="margin-top:2px"></form>
+<div class="tabs" role="tablist" aria-label="Help sections"><button type="button" role="tab" aria-selected="true" aria-controls="tp1" id="t1">For this step</button><button type="button" role="tab" aria-selected="false" aria-controls="tp2" id="t2" tabindex="-1">Glossary</button></div>
+<div role="tabpanel" id="tp1" aria-labelledby="t1">
+<p class="sec-h">For: row id, step 3 Map request</p><p style="margin:0 0 8px">TMF622 ids and your backend's order numbers are usually different values. Use the <span class="gw"><button type="button" class="g" aria-expanded="false" aria-controls="gp1">id-map</button><span class="pop" id="gp1" role="note">Looks up the backend id that belongs to a TMF622 id, and back</span></span> <span class="gw"><button type="button" class="g" aria-expanded="false" aria-controls="gp2">transform</button><span class="pop" id="gp2" role="note">A small rule that changes a value on its way across, for example renaming a status</span></span> so the backend finds the right order.</p>
+<p class="sec-h" style="margin-top:14px">Glossary terms</p><ul class="plain" style="list-style:none;padding:0"><li><span class="gw open"><button type="button" class="g" aria-expanded="true" aria-controls="gp3">payload</button><span class="pop" id="gp3" role="note">The data carried in a request or response</span></span></li><li><span class="gw"><button type="button" class="g" aria-expanded="false" aria-controls="gp4">JSON path</button><span class="pop" id="gp4" role="note">An address of a field inside JSON, like order.items[0].id</span></span></li><li><span class="gw"><button type="button" class="g" aria-expanded="false" aria-controls="gp5">lineage</button><span class="pop" id="gp5" role="note">Where a value came from and what changed it</span></span></li></ul>
+<div class="tip" style="margin-top:12px"><b>Tip.</b> Select a row, then Connect (<kbd>Alt+C</kbd>) to pick a backend field from a list. <button type="button" class="btn sec" style="padding:2px 10px;min-height:28px;margin-top:6px">Restore tips</button></div>
+<p class="sec-h" style="margin-top:14px">User manual</p><ul class="plain"><li><a href="docs/user-manual.html#id-map" target="_blank" rel="noopener">Mapping ids safely<span class="sr"> (opens in a new tab)</span></a></li><li><a href="docs/user-manual.html#map-request" target="_blank" rel="noopener">Map the request<span class="sr"> (opens in a new tab)</span></a></li></ul>
+<p class="sec-h" style="margin-top:14px">Shortcuts</p><ul class="plain" style="list-style:none;padding:0"><li><kbd>Alt+H</kbd> open or close Help</li><li><kbd>Alt+C</kbd> connect a field</li><li><kbd>Esc</kbd> close the panel and return to where you were</li></ul>
+</div><p class="sub" style="margin-top:12px">No result for your search? You would see: "Nothing matched {query}." with "Browse the glossary" and a manual link.</p><a href="docs/glossary.html">Open full glossary</a></aside></div><footer class="foot"><a href="docs/glossary.html">Glossary</a><a href="docs/user-manual.html" target="_blank" rel="noopener">User manual<span class="sr"> (opens in a new tab)</span></a><a href="docs/disclaimer.html">Disclaimer</a><span>Need a hand? Ask your integration lead.</span></footer></div></body></html>

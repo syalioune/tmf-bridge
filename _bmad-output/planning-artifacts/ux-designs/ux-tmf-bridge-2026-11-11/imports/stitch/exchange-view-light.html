@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-primary": "#8ccefd", "on-surface": "#191c22", "on-tertiary": "#ffffff", "outline": "#70787f", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#d0e3ff", "primary-container": "#1c6a94", "secondary-fixed-dim": "#c0c7d5", "primary": "#005176", "on-error": "#ffffff", "error-container": "#ffdad6", "secondary-fixed": "#dce3f1", "on-secondary": "#ffffff", "on-error-container": "#93000a", "on-primary-container": "#c6e5ff", "on-surface-variant": "#40484e", "tertiary-fixed": "#d2e4ff", "on-primary": "#ffffff", "surface-container-low": "#f2f3fc", "outline-variant": "#c0c7cf", "surface-container": "#ecedf6", "on-secondary-container": "#5c636f", "surface-tint": "#11648e", "primary-fixed-dim": "#8ccefd", "surface-bright": "#f9f9ff", "tertiary": "#004f87", "surface-variant": "#e1e2eb", "on-tertiary-fixed": "#001d36", "on-background": "#191c22", "inverse-surface": "#2d3037", "on-secondary-fixed": "#151c26", "error": "#ba1a1a", "primary-fixed": "#c9e6ff", "tertiary-container": "#2a67a1", "secondary": "#585f6b", "on-primary-fixed-variant": "#004c6e", "inverse-on-surface": "#eff0f9", "background": "#f9f9ff", "surface": "#f9f9ff", "surface-dim": "#d8dae2", "tertiary-fixed-dim": "#9fcaff", "surface-container-highest": "#e1e2eb", "on-primary-fixed": "#001e2f", "secondary-container": "#d9e0ee", "surface-container-high": "#e6e8f0", "on-tertiary-fixed-variant": "#00497e", "on-secondary-fixed-variant": "#404753" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-desktop": "1.5rem", "margin-desktop": "2rem", "space-xs": "0.25rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-lg": "1rem", "gutter": "1rem", "margin": "1rem" }, "fontFamily": { "body-strong": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "small": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "code": [ "\"ui-monospace, Menlo, Consolas, monospace\"" ], "body": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "title": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ], "label": [ "\"Segoe UI, system-ui, -apple-system, sans-serif\"" ] }, "fontSize": { "body-strong": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "small": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "code": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "body": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "title": [ "26px", { "lineHeight": "34px", "fontWeight": "600" } ], "label": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body text-body text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 h-16 bg-surface/90 backdrop-blur-md border-b border-outline-variant px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg" data-path="mappings-list" href="#"><img alt="TMF-Bridge Studio Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCvbwU-dIXueKGSsAELxzSj7278HtKRHusYoHnQv6m7SzkImPNwgpq-snth5Qqs475-Xlr_oXN-l9s0QDBICnCgJvBmaZrIbr5DJlz4EOT-uYy-wYfRnbAHLFpDnlG_JVY8RdHf9_6Lg3EGBSPbGk9soO_twxcl7YAkZWOWYvN1RrE9B481HccWzfVcVTLQ1Q0Y-XN0zw77Cmapvoxy8o3NoEH4zNCP8oZ6ozJf_Yq3dA"/><span class="font-title text-title text-primary tracking-tight">TMF-Bridge Studio</span></a><span class="h-5 w-px bg-outline-variant"></span><nav class="flex items-center gap-space-sm" data-active-classes="bg-secondary-container text-on-secondary-fixed-variant font-body-strong"><a class="px-space-md py-space-sm rounded-xl font-label text-label text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" data-path="mappings-list" href="#">Mappings</a><a class="px-space-md py-space-sm rounded-xl font-label text-label text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" data-path="backends" href="#">Backends</a><a aria-label="Help and Documentation" class="w-6 h-6 flex items-center justify-center rounded-full border border-primary text-primary font-label text-label hover:bg-primary hover:text-on-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ml-space-xs" data-path="glossary" href="#">?</a></nav></div><div class="flex items-center gap-space-lg"><div aria-label="Appearance Mode" class="flex items-center bg-surface-container p-space-xs rounded-xl border border-outline-variant" role="radiogroup"><button aria-label="Light mode" class="p-space-xs rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-primary" type="button"><span class="material-symbols-outlined text-[18px] block">light_mode</span></button><button aria-label="Dark mode" class="p-space-xs rounded-lg text-secondary hover:text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" type="button"><span class="material-symbols-outlined text-[18px] block">dark_mode</span></button></div><div class="flex items-center gap-space-md pl-space-sm border-l border-outline-variant"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnH6R9LqdRymwwU_UE1rN8WLaAAfcoR4UzueANLMWNnIXZOmPof4yJAJAHoRCZ-Ot2aK-5Z09SPy1FwdOXG5hxjNDnx2Ou7pJkB2LjanBXdyzq8Gkw3WMrySfkjqJI9t3w2OobYRPi-uVkL3qJilDHI7DTy_m6Z8SdX06u1klyNwe31kUEmOGGwo1IWiUSeEd6F6u3zRlSMWHVvQmsb3-eaFWWTRKK3kjgCvGgzFM4"/><div class="flex items-center gap-space-sm"><span class="font-small text-small text-on-surface-variant hidden sm:inline">Inès <span class="text-secondary">(Integration Analyst)</span></span><span class="text-outline-variant hidden sm:inline">•</span><a class="font-small text-small text-secondary hover:text-error transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" data-path="login" href="#">Sign out</a></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-low border-r border-outline-variant flex flex-col justify-between py-space-lg z-30"><div class="px-space-md"><div class="px-space-md py-space-xs font-label text-label text-secondary uppercase tracking-wider mb-space-sm">Workbench</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-body-strong"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-body text-body text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary" data-path="schema-workbench" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span>Field Mapping</a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-body text-body text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors focus:outline-none focus:ring-2 focus:ring-primary" data-path="validation-diagnostics" href="#"><span class="material-symbols-outlined text-[20px]">verified</span>Diagnostics</a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-primary bg-primary-container text-on-primary-container font-body-strong" data-path="test-payloads" href="#"><span class="material-symbols-outlined text-[20px]">data_object</span>Payload Simulator</a></nav></div><div class="px-space-lg pt-space-lg border-t border-outline-variant"><div class="bg-surface-container p-space-md rounded-xl border border-outline-variant"><div class="flex items-center gap-space-xs text-primary font-label text-label uppercase mb-space-xs"><span class="material-symbols-outlined text-[16px]">info</span>TMF Spec</div><div class="font-code text-code text-secondary text-xs truncate">TMF620_Product_Catalog_v4.0.0</div></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><main class="flex-1 pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Interactive State Engine -->
+<script>
+    function switchVerdict(state) {
+      const failingBlock = document.getElementById('verdict-failing');
+      const passingBlock = document.getElementById('verdict-passing');
+      const panel3 = document.getElementById('panel-response');
+      const panel3Badge = document.getElementById('panel-response-badge');
+      const panel3Summary = document.getElementById('panel-response-summary');
+      const panel3Body = document.getElementById('panel-response-content');
+      const passBtn = document.getElementById('btn-show-pass');
+      const failBtn = document.getElementById('btn-show-fail');
+
+      if (state === 'passing') {
+        failingBlock.classList.add('hidden');
+        passingBlock.classList.remove('hidden');
+        failBtn.classList.remove('hidden');
+        passBtn.classList.add('hidden');
+
+        // Update Panel 3 to successful response state
+        panel3.classList.remove('border-2', 'border-error', 'shadow-md');
+        panel3.classList.add('border', 'border-outline-variant', 'bg-surface-container-lowest');
+        panel3Badge.innerHTML = '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-label uppercase tracking-wider bg-[#d4eedd] text-[#0f5430]"><span class="material-symbols-outlined text-[14px]">check_circle</span> 200 OK</span>';
+        panel3Summary.textContent = 'Status 200 OK | Latency: 98ms | Timestamp: 14:23:12 UTC';
+        panel3Body.innerHTML = `
+          <div class="p-space-md rounded-xl bg-[#e3f4ea] text-[#14663b] mb-space-md flex items-start gap-space-sm">
+            <span class="material-symbols-outlined text-[20px] text-[#14663b] shrink-0 mt-0.5">verified</span>
+            <div class="text-small font-small">
+              <strong class="font-body-strong">Response Verified:</strong> Payload strictly conforms to TMF622 ProductOrder v4 specification. Entity ID mapped and persisted as <code class="font-code px-1.5 py-0.5 bg-white/70 rounded">ASSET-8849-BSS</code>.
+            </div>
+          </div>
+          <div class="rounded-xl bg-[#1e232a] text-surface-bright p-space-md overflow-x-auto border border-outline-variant font-code text-code text-xs leading-relaxed">
+            <div class="flex justify-between items-center text-outline-variant text-[11px] pb-space-xs mb-space-xs border-b border-outline-variant/30">
+              <span>BODY (application/json)</span>
+              <button onclick="navigator.clipboard.writeText(this.dataset.clip)" data-clip='{"id":"ORD-1","href":"/tmf-api/productOrdering/v4/productOrder/ORD-1","state":"acknowledged","externalId":"ASSET-8849-BSS"}' class="hover:text-surface-bright flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px]">content_copy</span> Copy
+              </button>
+            </div>
+<pre class="text-[#e6edf3]"><code>{
+  <span class="text-[#7ee787]">"id"</span>: <span class="text-[#a5d6ff]">"ORD-1"</span>,
+  <span class="text-[#7ee787]">"href"</span>: <span class="text-[#a5d6ff]">"https://matrix-oss.internal:8443/tmf-api/productOrdering/v4/productOrder/ORD-1"</span>,
+  <span class="text-[#7ee787]">"state"</span>: <span class="text-[#a5d6ff]">"acknowledged"</span>,
+  <span class="text-[#7ee787]">"externalId"</span>: <span class="text-[#a5d6ff]">"ASSET-8849-BSS"</span>,
+  <span class="text-[#7ee787]">"orderDate"</span>: <span class="text-[#a5d6ff]">"2025-02-24T14:23:11Z"</span>
+}</code></pre>
+          </div>
+        `;
+      } else {
+        passingBlock.classList.add('hidden');
+        failingBlock.classList.remove('hidden');
+        passBtn.classList.remove('hidden');
+        failBtn.classList.add('hidden');
+        window.location.reload();
+      }
+    }
+
+    function toggleAccordion(panelId, iconId) {
+      const el = document.getElementById(panelId);
+      const icon = document.getElementById(iconId);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        icon.textContent = 'expand_less';
+      } else {
+        el.classList.add('hidden');
+        icon.textContent = 'expand_more';
+      }
+    }
+
+    function copyClip(text, btnId) {
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById(btnId);
+      const prev = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-[#0f5430]">check</span> Copied!';
+      setTimeout(() => { btn.innerHTML = prev; }, 1800);
+    }
+  </script>
+<!-- Ambient Workflow Container -->
+<div class="px-margin-desktop py-space-xl max-w-7xl mx-auto w-full flex flex-col gap-space-xl">
+<!-- Top Workflow Stepper (Horizontal) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant">
+<div class="flex items-center justify-between overflow-x-auto gap-space-md py-space-xs">
+<!-- Step 1 -->
+<div class="flex items-center gap-space-sm text-secondary min-w-max">
+<span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label text-label text-xs">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<span class="font-label text-label text-xs uppercase tracking-wider">1. Ingest Specs</span>
+<span class="h-0.5 w-8 bg-outline-variant ml-space-xs"></span>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-sm text-secondary min-w-max">
+<span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label text-label text-xs">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<span class="font-label text-label text-xs uppercase tracking-wider">2. Schema Align</span>
+<span class="h-0.5 w-8 bg-outline-variant ml-space-xs"></span>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm text-secondary min-w-max">
+<span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label text-label text-xs">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<span class="font-label text-label text-xs uppercase tracking-wider">3. Field Map</span>
+<span class="h-0.5 w-8 bg-outline-variant ml-space-xs"></span>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm text-secondary min-w-max">
+<span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label text-label text-xs">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<span class="font-label text-label text-xs uppercase tracking-wider">4. Transforms</span>
+<span class="h-0.5 w-8 bg-outline-variant ml-space-xs"></span>
+</div>
+<!-- Step 5: ACTIVE -->
+<div class="flex items-center gap-space-sm min-w-max">
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-on-primary-container/40 border border-primary">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label text-label text-xs">
+              5
+            </span>
+<span class="font-label text-label text-xs text-primary uppercase tracking-wider">Test &amp; Diagnostics</span>
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse ml-0.5"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xs border-b border-outline-variant">
+<div>
+<div class="flex items-center gap-space-xs text-secondary font-label text-label text-xs uppercase tracking-widest mb-1">
+<span>Sub-step 3 / 4</span>
+<span>•</span>
+<span>Target Spec: TMF622 Product Ordering API v4.0</span>
+</div>
+<h1 class="font-title text-title text-on-surface">Test Mapping Execution &amp; Exchange Diagnostics</h1>
+<p class="font-body text-body text-on-surface-variant max-w-3xl mt-1">
+          Send mock TMF622 orders against Matrix-OSS sandbox to verify field resolution and transformation rules.
+        </p>
+</div>
+<!-- State Toggle Trigger -->
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-sm rounded-xl border border-[#14663b] bg-[#e3f4ea] hover:bg-[#d4eedd] text-[#14663b] font-label text-label text-xs flex items-center gap-1.5 transition-colors focus:ring-2 focus:ring-[#14663b] focus:ring-offset-2 focus:outline-none" id="btn-show-pass" onclick="switchVerdict('passing')">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+          View Passing Verdict
+        </button>
+<button class="hidden px-space-md py-space-sm rounded-xl border border-error bg-error-container hover:bg-[#fbd3d0] text-on-error-container font-label text-label text-xs items-center gap-1.5 transition-colors focus:ring-2 focus:ring-error focus:ring-offset-2 focus:outline-none" id="btn-show-fail" onclick="switchVerdict('failing')">
+<span class="material-symbols-outlined text-[18px]">error</span>
+          Revert to Failed Verdict
+        </button>
+</div>
+</div>
+<!-- 1. FULL WIDTH VERDICT BAR: FAILING STATE (DEFAULT) -->
+<section aria-label="Exchange Diagnostics Failure" class="rounded-xl p-5 border-2 border-[#A31F1F] bg-[#FDECEC] text-[#191c22] shadow-sm transition-all duration-300" id="verdict-failing">
+<div class="flex flex-col gap-space-md">
+<!-- Header row -->
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-[#A31F1F] text-white flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">cancel</span>
+</div>
+<div>
+<span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-label uppercase tracking-wider bg-[#A31F1F] text-white mb-1">
+                Verdict: Execution Failed
+              </span>
+<h2 class="text-[20px] leading-[26px] font-bold text-[#A31F1F]">
+                Exchange Failed: Backend returned HTTP 404 Not Found
+              </h2>
+<p class="font-body text-body text-[#40484e] mt-1">
+                The backend couldn't find order ORD-1. Your request sent it as orderId without the id-map transform.
+              </p>
+</div>
+</div>
+<div class="shrink-0 font-code text-code text-xs bg-white/70 px-space-md py-1.5 rounded-lg border border-[#A31F1F]/20 text-[#A31F1F]">
+            ERR_HTTP_404_LOOKUP
+          </div>
+</div>
+<!-- Strict Diagnostic Checklist (Explicit Words) -->
+<div class="pt-space-md border-t border-[#A31F1F]/20 grid grid-cols-1 md:grid-cols-2 gap-y-space-sm gap-x-space-lg">
+<!-- Check 1: Passed -->
+<div class="flex items-start gap-space-sm bg-white/50 p-space-sm rounded-lg border border-[#A31F1F]/10">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#d4eedd] text-[#0f5430] shrink-0">
+              Passed
+            </span>
+<span class="font-small text-small text-on-surface">
+              Payload schema validation: Valid TMF622 v4 JSON structure
+            </span>
+</div>
+<!-- Check 2: Passed with secret note -->
+<div class="flex items-start gap-space-sm bg-white/50 p-space-sm rounded-lg border border-[#A31F1F]/10">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#d4eedd] text-[#0f5430] shrink-0">
+              Passed
+            </span>
+<span class="font-small text-small text-on-surface">
+              Authentication: Uses secret <code class="font-code text-code text-xs px-1 py-0.5 bg-surface-container rounded font-bold">crm-prod-readonly</code>. Ask your tech team to change the value.
+            </span>
+</div>
+<!-- Check 3: Failed -->
+<div class="flex items-start gap-space-sm bg-[#ffe5e5] p-space-sm rounded-lg border border-[#A31F1F]/25">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#A31F1F] text-white shrink-0">
+              Failed
+            </span>
+<span class="font-small text-small text-[#A31F1F] font-body-strong">
+              Target entity resolution: Backend rejected lookup for un-mapped external ID
+            </span>
+</div>
+<!-- Check 4: Skipped -->
+<div class="flex items-start gap-space-sm bg-white/50 p-space-sm rounded-lg border border-[#A31F1F]/10">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-secondary-container text-on-secondary-container shrink-0">
+              Skipped
+            </span>
+<span class="font-small text-small text-secondary">
+              Response schema validation: Skipped due to upstream 404 response
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- 1. FULL WIDTH VERDICT BAR: PASSING STATE (ALTERNATIVE VIEW) -->
+<section aria-label="Exchange Diagnostics Success" class="hidden rounded-xl p-5 border-2 border-[#14663B] bg-[#E3F4EA] text-[#191c22] shadow-sm transition-all duration-300" id="verdict-passing">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-[#14663B] text-white flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-label uppercase tracking-wider bg-[#14663B] text-white mb-1">
+                Verdict: Checks Passed
+              </span>
+<h2 class="text-[20px] leading-[26px] font-bold text-[#14663B]">
+                Checks passed. The output matches your sample and the TMF622 schema.
+              </h2>
+<p class="font-body text-body text-[#40484e] mt-1">
+                All 4 synthetic assertions satisfied. Matrix-OSS accepted synthetic entity translation without schema degradation.
+              </p>
+</div>
+</div>
+<div class="shrink-0 font-code text-code text-xs bg-white/70 px-space-md py-1.5 rounded-lg border border-[#14663B]/20 text-[#14663B]">
+            HTTP_200_OK
+          </div>
+</div>
+<div class="pt-space-md border-t border-[#14663B]/20 grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="flex items-center gap-space-sm bg-white/70 p-space-sm rounded-lg">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#d4eedd] text-[#0f5430]">Passed</span>
+<span class="font-small text-small text-on-surface">Payload schema validation: Valid TMF622 v4 JSON structure</span>
+</div>
+<div class="flex items-center gap-space-sm bg-white/70 p-space-sm rounded-lg">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#d4eedd] text-[#0f5430]">Passed</span>
+<span class="font-small text-small text-on-surface">Authentication: Token active for target tenant</span>
+</div>
+<div class="flex items-center gap-space-sm bg-white/70 p-space-sm rounded-lg">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#d4eedd] text-[#0f5430]">Passed</span>
+<span class="font-small text-small text-on-surface">Target entity resolution: ID transformed to BSS Asset Key</span>
+</div>
+<div class="flex items-center gap-space-sm bg-white/70 p-space-sm rounded-lg">
+<span class="px-2 py-0.5 rounded text-xs font-label uppercase font-bold bg-[#d4eedd] text-[#0f5430]">Passed</span>
+<span class="font-small text-small text-on-surface">Response schema validation: Conforms to ProductOrder response spec</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Diagnostics Metric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant flex items-center justify-between">
+<div>
+<span class="font-label text-label text-xs uppercase text-secondary">Exchange Latency</span>
+<div class="font-title text-title text-on-surface mt-1">142<span class="text-xs font-body font-normal text-secondary">ms</span></div>
+</div>
+<span class="material-symbols-outlined text-[28px] text-primary">timer</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant flex items-center justify-between">
+<div>
+<span class="font-label text-label text-xs uppercase text-secondary">Target Endpoint</span>
+<div class="font-body-strong text-body-strong text-on-surface mt-1 truncate max-w-[140px]" title="matrix-oss.internal:8443">matrix-oss.internal</div>
+</div>
+<span class="material-symbols-outlined text-[28px] text-primary">dns</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant flex items-center justify-between">
+<div>
+<span class="font-label text-label text-xs uppercase text-secondary">Field Coverage</span>
+<div class="font-title text-title text-on-surface mt-1">14 / 14 <span class="text-xs font-body font-normal text-[#14663B]">100%</span></div>
+</div>
+<span class="material-symbols-outlined text-[28px] text-tertiary">alt_route</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant flex items-center justify-between">
+<div>
+<span class="font-label text-label text-xs uppercase text-secondary">Id-Map Status</span>
+<div class="font-body-strong text-body-strong text-error mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">warning</span> Missing key
+          </div>
+</div>
+<span class="material-symbols-outlined text-[28px] text-error">link_off</span>
+</div>
+</div>
+<!-- THREE CORE PANELS -->
+<div class="flex flex-col gap-space-md">
+<!-- PANEL 1: Mapping Result (Collapsed by specification) -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden transition-all">
+<button aria-controls="panel1-content" aria-expanded="false" class="w-full px-space-lg py-space-md flex items-center justify-between text-left hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset" onclick="toggleAccordion('panel1-content', 'panel1-icon')">
+<div class="flex items-center gap-space-md">
+<span class="font-label text-label text-secondary uppercase tracking-wider text-xs">1. Mapping Result</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body text-body text-on-surface">
+              Generated request body: 14 fields translated in 4.2ms.
+            </span>
+</div>
+<div class="flex items-center gap-space-xs text-primary font-label text-label text-xs">
+<span>[Expand]</span>
+<span class="material-symbols-outlined text-[18px]" id="panel1-icon">expand_more</span>
+</div>
+</button>
+<div class="hidden p-space-lg border-t border-outline-variant bg-surface-container-lowest" id="panel1-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<div class="font-label text-label text-xs uppercase text-secondary mb-space-xs">Source Order Input</div>
+<div class="bg-[#1e232a] text-[#e6edf3] p-space-md rounded-xl font-code text-code text-xs leading-relaxed overflow-x-auto">
+<pre><code>{
+  <span class="text-[#7ee787]">"sourceOrderId"</span>: <span class="text-[#a5d6ff]">"ORD-1"</span>,
+  <span class="text-[#7ee787]">"customerSegment"</span>: <span class="text-[#a5d6ff]">"B2B_ENTERPRISE"</span>,
+  <span class="text-[#7ee787]">"planCode"</span>: <span class="text-[#a5d6ff]">"FIBER_1000_DEDICATED"</span>,
+  <span class="text-[#7ee787]">"orderItems"</span>: [{
+    <span class="text-[#7ee787]">"itemSequence"</span>: <span class="text-[#79c0ff]">1</span>,
+    <span class="text-[#7ee787]">"action"</span>: <span class="text-[#a5d6ff]">"add"</span>
+  }]
+}</code></pre>
+</div>
+</div>
+<div>
+<div class="font-label text-label text-xs uppercase text-secondary mb-space-xs">Mapped Outgoing Envelope</div>
+<div class="bg-[#1e232a] text-[#e6edf3] p-space-md rounded-xl font-code text-code text-xs leading-relaxed overflow-x-auto">
+<pre><code>{
+  <span class="text-[#7ee787]">"@type"</span>: <span class="text-[#a5d6ff]">"ProductOrder"</span>,
+  <span class="text-[#7ee787]">"externalId"</span>: <span class="text-[#a5d6ff]">"ORD-1"</span>,  <span class="text-error font-bold">// &lt;-- Raw value without ID-MAP</span>
+  <span class="text-[#7ee787]">"category"</span>: <span class="text-[#a5d6ff]">"CommercialOrder"</span>,
+  <span class="text-[#7ee787]">"productOrderItem"</span>: [{
+    <span class="text-[#7ee787]">"id"</span>: <span class="text-[#a5d6ff]">"1"</span>,
+    <span class="text-[#7ee787]">"action"</span>: <span class="text-[#a5d6ff]">"add"</span>
+  }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 2: HTTP Request to Backend (Collapsed by specification) -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden transition-all">
+<button aria-controls="panel2-content" aria-expanded="false" class="w-full px-space-lg py-space-md flex items-center justify-between text-left hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset" onclick="toggleAccordion('panel2-content', 'panel2-icon')">
+<div class="flex items-center gap-space-md">
+<span class="font-label text-label text-secondary uppercase tracking-wider text-xs">2. HTTP Request to Backend</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body text-body text-on-surface">
+              POST https://matrix-oss.internal:8443/orders/v2 (Headers: 4, Body: 1.2 KB)
+            </span>
+</div>
+<div class="flex items-center gap-space-xs text-primary font-label text-label text-xs">
+<span>[Expand]</span>
+<span class="material-symbols-outlined text-[18px]" id="panel2-icon">expand_more</span>
+</div>
+</button>
+<div class="hidden p-space-lg border-t border-outline-variant bg-surface-container-lowest" id="panel2-content">
+<div class="flex flex-col gap-space-md">
+<div class="font-label text-label text-xs uppercase text-secondary">Transport Headers</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm font-code text-code text-xs">
+<div class="p-2 bg-surface-container rounded border border-outline-variant">
+<span class="text-secondary block">Content-Type</span>
+<span class="text-on-surface font-body-strong">application/json</span>
+</div>
+<div class="p-2 bg-surface-container rounded border border-outline-variant">
+<span class="text-secondary block">X-Correlator-ID</span>
+<span class="text-on-surface font-body-strong truncate block">corr-82914-ad20</span>
+</div>
+<div class="p-2 bg-surface-container rounded border border-outline-variant">
+<span class="text-secondary block">Authorization</span>
+<span class="text-on-surface font-body-strong">Bearer ••••••••</span>
+</div>
+<div class="p-2 bg-surface-container rounded border border-outline-variant">
+<span class="text-secondary block">X-TMF-Version</span>
+<span class="text-on-surface font-body-strong">4.0.0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 3: HTTP Response + TMF622 Payload (AUTO-EXPANDED with 2px error border #A31F1F) -->
+<section aria-labelledby="panel3-heading" class="bg-surface-container-lowest border-2 border-[#A31F1F] rounded-xl p-space-lg shadow-md transition-all" id="panel-response">
+<!-- Panel 3 Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md border-b border-outline-variant gap-space-sm">
+<div class="flex items-center gap-space-md">
+<h3 class="font-body-strong text-body-strong text-on-surface" id="panel3-heading">
+              3. HTTP Response + TMF622 Payload
+            </h3>
+<span id="panel-response-badge">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-label uppercase tracking-wider bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[14px]">error</span> HTTP 404
+              </span>
+</span>
+</div>
+<div class="font-code text-code text-xs text-secondary" id="panel-response-summary">
+            Status 404 Not Found | Latency: 142ms | Timestamp: 14:22:08 UTC
+          </div>
+</div>
+<!-- Panel 3 Main Diagnostic Body -->
+<div class="mt-space-md flex flex-col gap-space-lg" id="panel-response-content">
+<!-- Prescriptive Error Box with 4 Parts -->
+<div class="rounded-xl border border-error bg-error-container/30 p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-[#A31F1F] font-label text-label uppercase tracking-wider text-xs">
+<span class="material-symbols-outlined text-[18px]">build_circle</span> Guided Remediation Protocol
+            </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- 1. What Happened -->
+<div class="flex flex-col gap-1">
+<span class="font-label text-label text-xs uppercase text-secondary">1. What Happened</span>
+<p class="font-body text-body text-on-surface">
+                  Backend returned code <code class="font-code text-code text-xs px-1.5 py-0.5 bg-surface-container-highest rounded text-on-surface font-bold">ERR_ORDER_NOT_FOUND</code>.
+                </p>
+</div>
+<!-- 2. Likely Meaning -->
+<div class="flex flex-col gap-1">
+<span class="font-label text-label text-xs uppercase text-secondary">2. Likely Meaning</span>
+<p class="font-body text-body text-on-surface">
+                  Matrix-OSS expects an internal customer asset reference instead of the raw commercial order identifier.
+                </p>
+</div>
+<!-- 3. What to Try -->
+<div class="flex flex-col gap-space-xs md:col-span-2 pt-space-xs border-t border-outline-variant/40">
+<span class="font-label text-label text-xs uppercase text-secondary">3. What to Try</span>
+<div class="flex flex-wrap items-center gap-space-sm mt-1">
+<a class="inline-flex items-center gap-2 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label text-label text-xs transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" data-path="schema-workbench" href="#">
+<span class="material-symbols-outlined text-[16px]">transform</span>
+                    Add id-map transform to order.id
+                  </a>
+<button class="inline-flex items-center gap-2 px-space-md py-space-sm rounded-xl border border-outline text-on-surface hover:bg-surface-container font-label text-label text-xs transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="alert('Triggering re-test mock using fixture ORD-TEST-2...')" type="button">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+                    Re-test with payload ORD-TEST-2
+                  </button>
+</div>
+</div>
+<!-- 4. Who to Ask -->
+<div class="md:col-span-2 pt-space-xs flex items-center gap-2 font-small text-small text-secondary">
+<span class="material-symbols-outlined text-[16px] text-outline">support_agent</span>
+<span>
+<strong>Who to ask:</strong> Contact Matrix Integration Lead (Alex M.) or check the <a class="text-primary hover:underline font-body-strong" data-path="user-manual" href="#">User Manual</a>.
+                </span>
+</div>
+</div>
+</div>
+<!-- Raw JSON Response Viewer (ui-monospace 14, syntax styled) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label text-label text-xs uppercase text-secondary">Raw HTTP Response Stream</span>
+<button class="font-label text-label text-xs text-primary hover:underline flex items-center gap-1" id="btn-copy-raw" onclick="copyClip('{\n  &quot;code&quot;: 404,\n  &quot;message&quot;: &quot;Order ORD-1 not recognized&quot;\n}', 'btn-copy-raw')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Copy Raw
+              </button>
+</div>
+<div class="rounded-xl bg-[#1e232a] text-surface-bright p-space-md overflow-x-auto border border-outline-variant font-code text-[14px] leading-relaxed">
+<pre class="text-[#e6edf3]"><code>{
+  <span class="text-[#ff7b72]">"code"</span>: <span class="text-[#79c0ff]">404</span>,
+  <span class="text-[#ff7b72]">"message"</span>: <span class="text-[#a5d6ff]">"Order ORD-1 not recognized"</span>
+}</code></pre>
+</div>
+<p class="font-small text-small text-secondary text-xs italic">
+              Note: Samples are saved in this browser only.
+            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- STICKY SHARE & EXPORT BAR (Pinned along bottom inside main) -->
+<div class="sticky bottom-4 z-40 bg-surface-container-lowest border-t-[3px] border-primary-container rounded-xl p-space-md shadow-xl border-x border-b border-outline-variant flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Security / Secret Masking State -->
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs font-code text-code text-xs">
+<span class="text-secondary font-sans font-normal text-small">Auth Target:</span>
+<code class="px-1.5 py-0.5 bg-surface-container rounded text-on-surface font-bold">crm-prod-readonly</code>
+<span class="text-outline-variant">|</span>
+<span class="text-secondary">Token:</span>
+<span class="tracking-widest font-mono text-on-surface font-bold">••••</span>
+<span class="text-xs text-secondary italic">(masked)</span>
+</div>
+<span class="font-small text-small text-secondary text-[11px] mt-0.5">
+            Security note: Secrets are never included. Only the secret name is.
+          </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end">
+<button class="px-space-md py-space-sm rounded-xl border border-outline hover:bg-surface-container text-on-surface font-label text-label text-xs flex items-center gap-1.5 transition-colors focus:ring-2 focus:ring-primary focus:outline-none" id="btn-curl" onclick="copyClip('curl -X POST https://matrix-oss.internal:8443/orders/v2 -H &quot;Content-Type: application/json&quot; -d @payload.json', 'btn-curl')">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+          Copy as cURL
+        </button>
+<button class="px-space-md py-space-sm rounded-xl border border-outline hover:bg-surface-container text-on-surface font-label text-label text-xs flex items-center gap-1.5 transition-colors focus:ring-2 focus:ring-primary focus:outline-none" id="btn-postman" onclick="copyClip('postman://run/workspace/tmf-bridge-sandbox?exchangeId=ex_8829', 'btn-postman')">
+<span class="material-symbols-outlined text-[16px]">integration_instructions</span>
+          Copy as Postman
+        </button>
+<button class="px-space-md py-space-sm rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label text-label text-xs flex items-center gap-1.5 transition-colors shadow-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none" onclick="alert('Generating bundle: mappings.json, exchange_report.html, and mock_fixtures.zip')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+          Download bundle
+        </button>
+</div>
+</div>
+<!-- Universal Help Block (WCAG 2.2 AA compliant) -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm shrink-0">?</span>
+<div>
+<h4 class="font-body-strong text-body-strong text-on-surface text-small">Understanding Transformation Verification</h4>
+<p class="font-small text-small text-on-surface-variant text-xs">
+            Test harnesses execute synthetic payload translation against isolated sandbox endpoints without touching production data records.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<a class="font-label text-label text-xs text-primary hover:underline" data-path="glossary" href="#">Lookup Error Matrix</a>
+<span class="text-outline-variant">•</span>
+<a class="font-label text-label text-xs text-primary hover:underline" data-path="user-manual" href="#">Open API Guidelines</a>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low border-t border-outline-variant py-space-md px-margin-desktop"><div class="flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md font-small text-small text-on-surface-variant"><a class="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" data-path="glossary" href="#">Glossary</a><span class="text-outline-variant">•</span><a class="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" data-path="user-manual" href="#">User manual</a></div><div class="font-small text-small text-secondary flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-outline">help_center</span>Need a hand? Ask your integration lead.</div></div></footer></div></body></html>

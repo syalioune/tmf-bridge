@@ -1,0 +1,119 @@
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created, ready for development
+#   - in-progress: Developer actively working on implementation
+#   - review: Implementation complete, ready for review
+#   - done: Story completed
+
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+# Action Item Status:
+#   - open: Committed during a retrospective, not yet addressed
+#   - in-progress: Actively being worked on
+#   - done: Completed
+
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when its first story starts (via build's sprint sync)
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates the next story after the previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+# - Retrospective appends its action items to action_items; the status view surfaces open ones
+generated: 11-22-2026 22:48
+last_updated: 11-22-2026 22:48
+project: tmf-bridge
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+development_status:
+  epic-1: backlog
+  1-1-scaffold-the-repo-and-a-minimal-compose-dev-stack: backlog
+  1-2-evaluate-basic-mapping-expressions: backlog
+  1-3-evaluate-lookup-convert-idmap-map-and-filter: backlog
+  1-4-store-specs-and-mappings: backlog
+  1-5-route-tmf-calls-from-stored-openapi-specs: backlog
+  1-6-resolve-secrets-by-name-and-redact-sensitive-data: backlog
+  1-7-call-backends-with-timeouts-and-a-fixed-error-table: backlog
+  1-8-serve-tmf620-reads-through-one-validated-pipeline: backlog
+  1-9-require-oidc-bearer-tokens-on-the-runtime-api: backlog
+  1-10-seed-the-demo-data-on-first-boot: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-secure-the-control-plane-and-publish-its-openapi: backlog
+  2-2-create-list-and-autosave-a-mapping-draft: backlog
+  2-3-apply-a-draft-and-edit-a-live-mapping: backlog
+  2-4-manage-backends-over-rest: backlog
+  2-5-list-provisioned-secret-names-and-upload-a-backend-s-legacy: backlog
+  2-6-manage-the-id-map-over-rest: backlog
+  2-7-upload-tmf-specs-and-list-apis-and-operations: backlog
+  2-8-lint-a-mapping-for-non-blocking-warnings: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-export-the-whole-configuration-deterministically: backlog
+  3-2-export-one-mapping-on-its-own: backlog
+  3-3-validate-an-import-file-completely-before-touching-anything: backlog
+  3-4-import-mappings-as-drafts-additively-without-touching-live: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-scaffold-the-studio-with-design-tokens-themes-and-test-harne: backlog
+  4-2-sign-in-with-oidc-and-handle-session-states: backlog
+  4-3-build-the-app-shell-and-shared-components: backlog
+  4-4-list-and-open-mappings: backlog
+  4-5-manage-backends: backlog
+  4-6-manage-the-id-map: backlog
+  4-7-export-and-import-configuration-from-the-studio: backlog
+  epic-4-retrospective: optional
+
+  epic-5: backlog
+  5-1-open-the-mapping-workspace-with-stepper-modes-inspector-and: backlog
+  5-2-pick-the-api-and-operation: backlog
+  5-3-declare-the-backend: backlog
+  5-4-show-the-mapping-table-and-field-lists: backlog
+  5-5-connect-fields-with-the-connect-picker: backlog
+  5-6-drag-and-drop-with-the-wiring-layer: backlog
+  5-7-choose-and-edit-transforms-including-arrays: backlog
+  5-8-warn-when-an-id-field-is-mapped-without-id-map: backlog
+  5-9-apply-the-mapping-and-confirm-it-is-live: backlog
+  5-10-prove-uj-1-end-to-end: backlog
+  epic-5-retrospective: optional
+
+  epic-6: backlog
+  6-1-preview-a-translation-without-sending-anything: backlog
+  6-2-run-a-real-read-only-test-call-in-guarded-test-mode: backlog
+  6-3-capture-step-results-and-field-lineage-on-test-calls: backlog
+  6-4-compute-the-verdict-server-side: backlog
+  6-5-assemble-curl-postman-and-the-share-bundle-on-the-server: backlog
+  6-6-test-sub-steps-1-and-2-in-the-studio: backlog
+  6-7-run-sub-step-3-and-read-the-exchange-view: backlog
+  6-8-share-from-the-exchange-view: backlog
+  6-9-prove-uj-5-end-to-end: backlog
+  epic-6-retrospective: optional
+
+  epic-7: backlog
+  7-1-help-panel-with-search-and-shortcuts: backlog
+  7-2-inline-tips-help-links-and-glossary-terms: backlog
+  7-3-consistent-help-footer-disclaimer-and-no-conformance-guard: backlog
+  7-4-write-the-user-manual-and-glossary-content: backlog
+  7-5-gate-accessibility-and-reflow-in-ci: backlog
+  epic-7-retrospective: optional
+
+  epic-8: backlog
+  8-1-full-compose-demo-with-keycloak-studio-and-one-origin: backlog
+  8-2-readme-and-the-ten-minute-showcase-path: backlog
+  8-3-helm-chart-probes-and-one-image-per-environment: backlog
+  8-4-ci-pipeline-for-images-and-suites: backlog
+  8-5-verify-the-100-ms-overhead-target: backlog
+  8-6-prove-uj-2-uj-3-and-uj-4-end-to-end: backlog
+  epic-8-retrospective: optional

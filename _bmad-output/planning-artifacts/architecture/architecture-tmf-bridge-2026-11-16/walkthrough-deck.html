@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TMF-Bridge Architecture Walkthrough</title>
+<style>
+:root{--bg:#f7f7f5;--fg:#1d1d1b;--mut:#5c5c58;--card:#fff;--line:#d9d9d4;--acc:#1f5fbf;--ok:#1a7f4b;--warn:#a85d00;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15161a;--fg:#ececea;--mut:#a3a39e;--card:#1e2026;--line:#34363d;--acc:#7aa7f0;--ok:#4cc38a;--warn:#e0a050;--bad:#f0807a}}
+:root[data-theme="dark"]{--bg:#15161a;--fg:#ececea;--mut:#a3a39e;--card:#1e2026;--line:#34363d;--acc:#7aa7f0;--ok:#4cc38a;--warn:#e0a050;--bad:#f0807a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}
+header{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--line)}
+header b{font-size:15px}
+nav{display:flex;gap:8px;align-items:center}
+button{font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+main{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+section{display:none}
+section.on{display:block}
+h1{font-size:30px;margin:8px 0}
+h2{font-size:24px;margin:4px 0 12px}
+p.lead{color:var(--mut);margin-top:0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h3{margin:0 0 6px;font-size:16px}
+.tag{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:10px;padding:0 8px;color:var(--mut);margin-right:4px}
+.rule{border-left:3px solid var(--acc)}
+.no{border-left:3px solid var(--bad)}
+code,pre{font-family:ui-monospace,Consolas,monospace;font-size:13px}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto}
+svg{width:100%;height:auto;max-width:100%}
+svg text{fill:var(--fg);font:13px system-ui,sans-serif}
+svg .box{fill:var(--card);stroke:var(--line);stroke-width:1.5}
+svg .hi{fill:none;stroke:var(--acc);stroke-width:2}
+svg .arr{stroke:var(--mut);stroke-width:1.5;fill:none;marker-end:url(#a)}
+svg .bad{stroke:var(--bad);stroke-dasharray:5 4}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.steps button[aria-pressed="true"]{border-color:var(--acc);color:var(--acc)}
+#stepout{min-height:3em}
+footer{position:fixed;bottom:0;left:0;right:0;padding:8px 16px;background:var(--bg);border-top:1px solid var(--line);color:var(--mut);font-size:13px;display:flex;justify-content:space-between}
+@media (max-width:600px){header{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <b>TMF-Bridge · architecture walkthrough</b>
+  <nav aria-label="Slides">
+    <button id="prev">← Prev</button>
+    <span id="pos" aria-live="polite">1 / 1</span>
+    <button id="next">Next →</button>
+    <button id="theme" aria-label="Toggle theme">Theme</button>
+  </nav>
+</header>
+<main>
+
+<section>
+  <h1>One engine, config as data</h1>
+  <p class="lead">TMF-Bridge serves TM Forum Open APIs from configuration. Partners call TMF. Analysts author the translation in a studio. No code, no restart. S1 proves it for reads on a mock backend.</p>
+  <div class="grid">
+    <div class="card"><h3>Paradigm</h3>Interpreter runtime, hexagonal. One generic evaluator runs mapping documents stored in the database.</div>
+    <div class="card"><h3>Deployable</h3>One Spring Boot app, two planes: <b>data</b> (serve calls) and <b>control</b> (studio API, drafts, import/export).</div>
+    <div class="card"><h3>Builders</h3>Humans and AI agents. So every rule names its check: ArchUnit, a contract test, a grep test.</div>
+  </div>
+  <p>Use ← → to move. Open the cards, they hold the decisions.</p>
+</section>
+
+<section>
+  <h2>The system</h2>
+  <p class="lead">Three images, one database, one origin at the ingress.</p>
+  <svg viewBox="0 0 900 320" role="img" aria-label="System container diagram">
+    <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" style="color:var(--mut)"/></marker></defs>
+    <rect class="box" x="10" y="20" width="130" height="50" rx="8"/><text x="75" y="50" text-anchor="middle">Partner</text>
+    <rect class="box" x="10" y="130" width="130" height="50" rx="8"/><text x="75" y="160" text-anchor="middle">Analyst</text>
+    <rect class="box" x="190" y="130" width="150" height="50" rx="8"/><text x="265" y="160" text-anchor="middle">studio-frontend</text>
+    <rect class="box hi" x="400" y="40" width="200" height="190" rx="10"/><text x="500" y="62" text-anchor="middle" font-weight="600">tmf-bridge-api</text>
+    <rect class="box" x="420" y="78" width="160" height="50" rx="8"/><text x="500" y="108" text-anchor="middle">data plane</text>
+    <rect class="box" x="420" y="150" width="160" height="50" rx="8"/><text x="500" y="180" text-anchor="middle">control plane</text>
+    <rect class="box" x="670" y="20" width="200" height="50" rx="8"/><text x="770" y="50" text-anchor="middle">Legacy backend / tmf-mock</text>
+    <rect class="box" x="670" y="130" width="200" height="50" rx="8"/><text x="770" y="160" text-anchor="middle">PostgreSQL</text>
+    <rect class="box" x="670" y="230" width="200" height="50" rx="8"/><text x="770" y="260" text-anchor="middle">OIDC (Keycloak in demo)</text>
+    <path class="arr" d="M140 45H420"/><path class="arr" d="M140 155H190"/><path class="arr" d="M340 155H420"/>
+    <path class="arr" d="M580 100L670 50"/><path class="arr" d="M580 160L670 155"/><path class="arr" d="M580 110L670 150"/>
+    <path class="arr" d="M265 180V255H670"/>
+  </svg>
+  <div class="grid">
+    <details><summary>AD-4 Three images, studio is a pure client</summary>Studio calls only the public config API. A test asserts every studio request exists in the springdoc OpenAPI. Runtime-only deployment is the API with <code>control</code> off and no studio image.</details>
+    <details><summary>AD-3 Plane split</summary>Control beans live under profile <code>control</code>. Runtime code never imports control code. Only control instances migrate the schema. Data pods wait on readiness, they do not crash-loop.</details>
+  </div>
+</section>
+
+<section>
+  <h2>Layers and the dependency rule</h2>
+  <svg viewBox="0 0 900 300" role="img" aria-label="Dependency direction">
+    <rect class="box" x="20" y="20" width="250" height="50" rx="8"/><text x="145" y="50" text-anchor="middle">adapter/in/web/runtime</text>
+    <rect class="box" x="630" y="20" width="250" height="50" rx="8"/><text x="755" y="50" text-anchor="middle">adapter/in/web/control</text>
+    <rect class="box" x="20" y="110" width="250" height="50" rx="8"/><text x="145" y="140" text-anchor="middle">application/runtime</text>
+    <rect class="box" x="630" y="110" width="250" height="50" rx="8"/><text x="755" y="140" text-anchor="middle">application/control</text>
+    <rect class="box hi" x="300" y="200" width="300" height="60" rx="8"/><text x="450" y="226" text-anchor="middle" font-weight="600">domain</text><text x="450" y="246" text-anchor="middle">evaluator · nodes · CallPipeline · ports</text>
+    <rect class="box" x="300" y="110" width="300" height="50" rx="8"/><text x="450" y="140" text-anchor="middle">adapter/out (JPA, REST, secrets)</text>
+    <path class="arr" d="M145 70V110"/><path class="arr" d="M755 70V110"/><path class="arr" d="M145 160L330 200"/><path class="arr" d="M755 160L570 200"/><path class="arr" d="M450 160V200"/>
+    <path class="arr bad" d="M270 135H630"/><text x="450" y="95" text-anchor="middle" style="fill:var(--bad)">forbidden: runtime ↔ control</text>
+  </svg>
+  <div class="grid">
+    <div class="card rule"><h3>AD-2</h3>Domain imports no Spring, JPA or adapter. The only third-party type allowed is Jackson <code>JsonNode</code>. Checked by one ArchUnit suite.</div>
+    <div class="card rule"><h3>AD-5</h3>Studio tests and production run the <b>same</b> domain <code>CallPipeline</code>. Lineage and step results are observers, on only in studio tests.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Follow one call</h2>
+  <p class="lead">Click a step.</p>
+  <div class="steps" id="steps"></div>
+  <div class="card" id="stepout">Pick a step.</div>
+  <p>Error table (AD-11): backend 404 → 404 · other 4xx, 5xx, transport, invalid translated response, mapping error → 502 · timeout → 504. Bodies are generic.</p>
+</section>
+
+<section>
+  <h2>The mapping document</h2>
+  <p class="lead">JSON, canonical, validated by a published schema. A closed expression tree, no scripting.</p>
+<pre>{ "schemaVersion": 1,
+  "request":  [ { "target": "/path/code", "expr": { "op": "idMap", "resource": "productOrder", "arg": {"path": "/path/id"} } } ],
+  "response": [ { "target": "/name",
+                  "expr": { "op": "concat", "args": [ {"path": "/body/code"}, {"lit": " - "}, {"path": "/body/label"} ] } },
+                { "target": "/productOfferingPrice",
+                  "expr": { "op": "map", "over": {"path": "/body/prices"},
+                            "as": [ { "target": "/amount", "expr": {"path": "/amount"} } ] } } ] }</pre>
+  <div class="grid">
+    <div class="card rule"><h3>Nodes (S1)</h3><code>path lit concat coalesce if lookup convert idMap map filter</code></div>
+    <div class="card rule"><h3>Addressing</h3>JSON Pointer for reads and writes. <code>syntax</code> field reserved for JSONPath later. Absent ≠ <code>null</code>: absent is a mapping error.</div>
+    <div class="card"><h3>Later, reserved</h3><code>{"op":"expr"}</code> for CEL. S1 rejects it.</div>
+  </div>
+</section>
+
+<section>
+  <h2>State and versions</h2>
+  <table>
+    <tr><th>Entity</th><th>Rule</th></tr>
+    <tr><td>ApiSpec</td><td>Immutable, content-hashed. TMF620 and TMF622 v4 seeded, the DB wins afterwards.</td></tr>
+    <tr><td>Mapping</td><td>One per operation. Live pointer, at most one Draft. ETag = lock revision.</td></tr>
+    <tr><td>MappingVersion</td><td>Draft mutable. Applied immutable (DB trigger). Apply deletes nothing.</td></tr>
+    <tr><td>Backend</td><td>Referenced by name, read per call. Delete blocked with 409 while used.</td></tr>
+    <tr><td>IdMapEntry</td><td>Unique on (resource, tmfId) and (resource, backendId). Read per call, no cache.</td></tr>
+  </table>
+  <div class="grid" style="margin-top:12px">
+    <div class="card rule"><h3>Cache without invalidation</h3>The live pointer is read per call. Compiled mappings are cached by immutable (mapping, number), specs by hash. It cannot go stale.</div>
+    <div class="card rule"><h3>JPA rules</h3>Lazy associations, explicit JPQL fetch, no entity graphs, entities never cross a port, UTC in the DB, Flyway owns the schema.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Studio, test mode, exports</h2>
+  <div class="grid">
+    <div class="card rule"><h3>Test is guarded</h3>Real test calls run in test mode: the backend client allows GET only and refuses before the network.</div>
+    <div class="card rule"><h3>Preview is stateless</h3>No write port, no draft repository. Samples never reach logs, DB or mapping documents.</div>
+    <div class="card rule"><h3>One serializer</h3>Exports, bundles and hashes go through the canonicalizer. No generated ids. Export → import → export is byte-identical.</div>
+    <div class="card rule"><h3>Import</h3>Validate the whole file, then one transaction. Everything lands as Draft. Over an existing Draft the user chooses replace or skip.</div>
+  </div>
+  <p>Share bundle: one zip with <code>manifest.json mapping.json sample-request.json sample-response.json exchange.json verdict.json postman.json</code>. Secrets appear as <code>$SECRET_VALUE</code>, samples masked with <code>***</code>.</p>
+</section>
+
+<section>
+  <h2>Security and secrets</h2>
+  <div class="grid">
+    <div class="card rule"><h3>AD-13</h3>One filter chain per plane. Control chain always authenticated (OIDC). Runtime chain authenticated unless <code>tmfbridge.runtime.auth.enabled=false</code>. Test: every control endpoint answers 401 without a token.</div>
+    <div class="card rule"><h3>AD-10</h3>Backends hold a secret <b>name</b>. Value comes from env <code>TMFBRIDGE_SECRET_&lt;NAME&gt;</code> or a mounted file (file wins). One redactor sees every value. Test greps all outputs.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Delivery and operations</h2>
+  <div class="grid">
+    <div class="card"><h3>Images</h3><code>tmf-bridge-api</code>, <code>studio-frontend</code>, <code>tmf-mock</code>. Same image in every environment, configuration differs.</div>
+    <div class="card"><h3>Promotion</h3>Export then import. No rebuild.</div>
+    <div class="card"><h3>Demo</h3><code>docker compose up</code>: Postgres, API, studio, mock, Keycloak. Working within ten minutes of cloning. TMF622 is unmapped on purpose.</div>
+    <div class="card"><h3>Observability</h3>Micrometer, OTLP and Prometheus. Overhead timer, p95 &lt; 100 ms. <code>Server-Timing</code> header on runtime calls.</div>
+    <div class="card"><h3>CI</h3>ArchUnit, Testcontainers, node contract tests, export round trip, secret-leak grep, Spectral, Playwright + axe-core.</div>
+    <div class="card"><h3>Operator owns</h3>PostgreSQL backup and HA. The whole export is a second restore path.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Build order and what we did not decide</h2>
+  <ol>
+    <li>Domain core: nodes, evaluator, canonicalizer, redactor.</li>
+    <li>Persistence adapter and Flyway schema.</li>
+    <li>CallPipeline and runtime handler, TMF620 read on the mock.</li>
+    <li>Config API, import and export.</li>
+    <li>Studio shell and six steps.</li>
+    <li>Test mode, preview, verdict, exchange view, bundle.</li>
+    <li>Compose demo with Keycloak, then TMF622 through the studio.</li>
+  </ol>
+  <details><summary>Deferred, each with a revisit condition</summary>
+    CEL expressions · JSONPath · configurable error mapping · retries, saga, idempotency, hub, Kafka · history and rollback · id-map restore · secret rotation · roles and audit · AI-assisted mapping from the studio · WSDL and other protocols · multi-tenancy · sizing.</details>
+  <details><summary>PRD amendments to fold in</summary>
+    FR-5 adds map and filter · FR-17 import conflict choice, next number · FR-32 autosave also 412 · FR-39 reverse clash · FR-16 endpoint credentials rejected · FR-20/21 studio-test only · FR-22 Server-Timing header. All folded into the PRD 2026-11-20, which also fixes id-map miss to 502 and skips identical backends on import.</details>
+</section>
+
+</main>
+<footer><span>Source of truth: ARCHITECTURE-SPINE.md. This deck explains, the spine decides.</span><span>← → keys</span></footer>
+<script>
+(function(){
+  var s=[].slice.call(document.querySelectorAll('main>section')),i=0;
+  try{var h=parseInt(location.hash.slice(1),10);if(h>=1&&h<=s.length)i=h-1;}catch(e){}
+  function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(x,k){x.classList.toggle('on',k===i)});
+    document.getElementById('pos').textContent=(i+1)+' / '+s.length;
+    try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1)});
+  document.getElementById('theme').onclick=function(){
+    var r=document.documentElement,d=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    r.setAttribute('data-theme',d?'light':'dark');};
+  var T=[
+   ['1 Match','Catch-all handler matches the path against stored specs. No spec, or no Live mapping, answers 501. A configured operation with an unknown id answers 404.'],
+   ['2 Auth','Runtime filter chain checks the bearer token. The chain can be switched off by property. The control chain cannot.'],
+   ['3 Load','Live pointer is read from the DB on every call. The compiled mapping comes from cache keyed by (mapping, number).'],
+   ['4 Request table','Rules turn the TMF request into a backend request. An idMap node translates the TMF id. A missing entry, forward or reverse, is a mapping error and answers 502.'],
+   ['5 Backend call','Secret resolved by name. RestClient on a virtual thread. Timeout 5 s default, per-backend override. No retries in S1.'],
+   ['6 Response table','Rules build the TMF payload from the backend response. Absent path is a mapping error, answered 502.'],
+   ['7 Validate','Payload validated against the OpenAPI schema (OpenAPI 3.0 converted to JSON Schema, networknt). Invalid answers 502, the payload is never returned.'],
+   ['8 Respond','Response carries Server-Timing with bridge overhead (total minus backend time).']];
+  var box=document.getElementById('steps'),out=document.getElementById('stepout');
+  T.forEach(function(t,k){var b=document.createElement('button');b.textContent=t[0];b.setAttribute('aria-pressed','false');
+    b.onclick=function(){[].forEach.call(box.children,function(c){c.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');out.textContent=t[1]};box.appendChild(b)});
+  show(i);
+})();
+</script>
+</body>
+</html>
